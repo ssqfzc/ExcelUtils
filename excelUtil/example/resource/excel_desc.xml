@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excelImport>
+	<repeatImport>
+		<![CDATA[
+			A1 = DEPTNAME1,
+			B1 = DEPTNAME2,
+			C1 = NAME,
+			D1 = KEY,
+			E1 = MOBILE,
+			F1 = MAIL,
+			G1 = OFFICEPHONE,
+		]]>
+		<endCode>End</endCode>
+	</repeatImport>
+	
+	<!-- 校验器定义 -->
+	<validators>
+		<validator name="validator1" value="com.excelimport.validate.NotNullValidator" />
+		<validator name="validator2" value="com.excelimport.validate.LengthValidator" />
+	</validators>
+
+	<!-- 需要校验的单元格 -->
+	<cell-validators>
+		<cell-validator cellname="E1">
+			<validator name="validator1" />
+		</cell-validator>
+		<cell-validator cellname="D1">
+			<validator name="validator2" />
+		</cell-validator>
+		<cell-validator cellname="F1">
+			<validator name="validator1" />
+			<validator name="validator2" />
+		</cell-validator>
+	</cell-validators>
+	
+</excelImport>
